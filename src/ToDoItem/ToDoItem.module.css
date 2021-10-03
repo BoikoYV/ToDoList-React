@@ -1,0 +1,71 @@
+.item {
+    align-items: center;
+    background-color: #fff;
+    border-radius: 15px;
+    padding: 10px;
+    padding-left: 20px;
+    padding-right: 10px;
+    display: flex;
+    margin: 0 auto;
+}
+
+.itemText {
+    cursor: pointer;
+}
+
+.item+.item {
+    margin-top: 15px;
+}
+
+.btn {
+    background-repeat: no-repeat;
+    background-size: 15px;
+    border-radius: 8px;
+    width: 30px;
+    height: 30px;
+    background-position: center;
+}
+
+.btnBox {
+    margin-left: auto;
+}
+
+.deleteBtn {
+    background-image: url("./delete.svg");
+    border: 1px solid rgb(255, 151, 151);
+    margin-right: 10px;
+}
+
+.deleteBtn:hover {
+    background-color: rgb(250, 170, 170);
+}
+
+.importantBtn {
+    background-image: url("./important.svg");
+    border: 1px solid rgb(151, 255, 175);
+}
+
+.importantBtn:hover {
+    background-color: rgb(209, 252, 187);
+}
+
+.cross {
+    text-decoration: line-through;
+    position: relative;
+}
+
+.cross::before {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 120%;
+    height: 2px;
+    background-color: #7c6cc2;
+}
+
+.important {
+    font-weight: 700;
+    color: #998bda;
+}

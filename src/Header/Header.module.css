@@ -1,0 +1,13 @@
+.title {
+    text-align: center;
+}
+
+.headerBox {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.counter {
+    font-weight: 700;
+}

@@ -1,0 +1,56 @@
+.filterBox {
+    display: flex;
+    justify-content: space-between;
+    width: 75%;
+    margin: 0 auto;
+    margin-bottom: 30px;
+}
+
+.filterInput {
+    border: none;
+    border-radius: 15px;
+    padding: 17px;
+    width: 50%;
+    cursor: pointer;
+    margin-right: 10px;
+}
+
+.filterInput[placeholder] {
+    font-size: inherit;
+}
+
+.btnBox {
+    display: flex;
+}
+
+.btn {
+    color: inherit;
+    background-color: #fff;
+    font-size: inherit;
+    padding: 10px 20px;
+    border: 2px solid #998bda;
+}
+
+.btnAll {
+    border-radius: 15px 0 0 15px;
+}
+
+.btnActive {
+    border-radius: 0;
+    border-left: none;
+}
+
+.btnDone {
+    border-radius: 0 15px 15px 0;
+    border-left: none;
+}
+
+.btnSelected {
+    background-color: #998adb;
+    color: #fff;
+}
+
+.btn:hover {
+    color: #fff;
+    background-color: #7c6cc2;
+}

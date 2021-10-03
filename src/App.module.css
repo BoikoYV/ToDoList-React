@@ -1,0 +1,16 @@
+.app {
+    background-color: #d7d8f4;
+    ;
+    border-radius: 15px;
+    padding: 20px;
+    font-family: sans-serif;
+    max-width: 750px;
+    margin: 0 auto;
+}
+
+button {
+    border: none;
+    background: transparent;
+    cursor: pointer;
+    transition: 0.3s;
+}

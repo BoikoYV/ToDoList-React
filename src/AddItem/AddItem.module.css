@@ -1,0 +1,31 @@
+.addItemBox {
+    display: flex;
+    width: 75%;
+    justify-content: space-between;
+    margin: 0 auto;
+    margin-top: 50px;
+}
+
+.addInput {
+    border: none;
+    border-radius: 15px;
+    padding: 17px;
+    width: 70%;
+    cursor: pointer;
+}
+
+.addInput[placeholder] {
+    font-size: inherit;
+}
+
+.addItemBtn {
+    background-color: #998adb;
+    width: 20%;
+    border-radius: 15px;
+    color: white;
+    font-size: inherit;
+}
+
+.addItemBtn:hover {
+    background-color: #7c6cc2;
+}
