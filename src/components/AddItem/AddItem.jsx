@@ -12,7 +12,7 @@ class AddItem extends Component {
         const { value } = this.state;
         addItemHandler(value);
         console.log(e.target[0].value);
-        // e.target[0].value = '';
+        e.target[0].value = '';
     }
 
     addValueToState(e) {
