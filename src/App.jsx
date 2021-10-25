@@ -8,76 +8,48 @@ import styles from './App.module.css';
 class App extends Component {
     state = {
         items: [],
-        important: [],
         filterStr: '',
         filterStatus: 'all'
     }
 
     componentDidMount() {
-        console.log(this.state);
         const todosInLS = JSON.parse(localStorage.getItem('todos')) || [];
-        console.log(todosInLS);
         if (!todosInLS) return [];
-        this.setState({
-            items: todosInLS
-        })
+        this.setState({ items: todosInLS })
     }
 
     componentDidUpdate(prevProps, prevState) {
         if (prevState.items !== this.state.items) {
             localStorage.setItem('todos', JSON.stringify(this.state.items))
-        } 
+        }
     }
 
-    changeItemState(property, id) {
-        const { items } = this.state;
-
-        const currentElIndex = items.findIndex((item) => item.id === id);
-
-        const beforeCurrent = items.slice(0, currentElIndex);
-        const afterCurrent = items.slice(currentElIndex + 1);
-        const currentEl = items[currentElIndex];
-        currentEl[property] = !currentEl[property];
-
-        const newState = { ...beforeCurrent, currentEl, ...afterCurrent };
-        console.log(newState);
-        this.setState(newState);
-        return newState;
-    }
-
-    importantItemHandler = (id) => {
-        this.changeItemState('important', id);
-        this.setState({
-            important: [...this.state.important, id]
-        })
-        // localStorage.setItem('todos', JSON.stringify([...this.state.important, id]));
-
-    }
-
-    doneItemHandler = (id) => {
+    changeItemState = (property, id) => {
         const { items } = this.state;
 
         const changedState = items.map(item => {
             if (item.id !== id) return item;
-            item.done = !item.done;
+            item[property] = !item[property];
             return item;
-
         });
 
-        console.log(changedState);
-        this.setState({ ...this.state, items: changedState })
+        return this.setState({ ...this.state, items: changedState })
+    }
 
+    importantItemHandler = (id) => {
+        this.changeItemState('important', id);
+    }
+
+    doneItemHandler = (id) => {
+        this.changeItemState('done', id);
     }
 
     filterByValue = (items, filterStr) => {
-        if (filterStr.length === 0) {
-            return items;
-        }
+        if (!filterStr.length) return items;
 
         return items.filter((item) => {
             return item.text.toLowerCase().indexOf(filterStr.toLowerCase()) > -1;
         })
-
     }
 
     filterByStatus = (items, status) => {
@@ -94,7 +66,6 @@ class App extends Component {
     }
 
     onSearchChange = (filterStr) => {
-        console.log(this.state);
         this.setState({ filterStr })
     }
 
@@ -110,11 +81,7 @@ class App extends Component {
             important: false,
             done: false
         }
-        const changedItems = [...items, newItem];
-
-        this.setState({ items: changedItems });
-        console.log(changedItems);
-        localStorage.setItem('todos', JSON.stringify(changedItems));
+        this.setState({ items: [...items, newItem] });
     }
 
     renderList = () => {
@@ -143,7 +110,6 @@ class App extends Component {
         ];
 
         this.setState({ items: changedItems });
-
     }
 
 
