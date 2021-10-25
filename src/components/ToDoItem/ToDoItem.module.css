@@ -55,18 +55,9 @@
 .cross {
     text-decoration: line-through;
     position: relative;
+    color: #979797;
 }
 
-.cross::before {
-    content: "";
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    width: 120%;
-    height: 2px;
-    background-color: #7c6cc2;
-}
 
 .important {
     font-weight: 700;
