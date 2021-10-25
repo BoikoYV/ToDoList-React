@@ -14,4 +14,4 @@ Functionality:
 - Сounting completed and active tasks;
 - Synchronization with local storage
 
-![image](https://user-images.githubusercontent.com/68449997/138762931-003aef4b-1594-4911-abf5-791e4480bf92.png)
+ <img src="https://user-images.githubusercontent.com/68449997/138762931-003aef4b-1594-4911-abf5-791e4480bf92.png" width="900">
