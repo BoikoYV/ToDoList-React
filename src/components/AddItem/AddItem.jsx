@@ -11,13 +11,13 @@ class AddItem extends Component {
         const { addItemHandler } = this.props;
         const { value } = this.state;
         addItemHandler(value);
-        e.target[0].value = '';
+        console.log(e.target[0].value);
+        // e.target[0].value = '';
     }
 
     addValueToState(e) {
         let value = e.target.value;
-        this.setState({ value: value });
-        
+        if (value !== this.state.value) this.setState({ value: value });
     }
 
     render() {

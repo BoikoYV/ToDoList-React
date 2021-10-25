@@ -3,7 +3,6 @@
     justify-content: space-between;
     width: 75%;
     margin: 0 auto;
-    margin-bottom: 30px;
 }
 
 .filterInput {
@@ -21,6 +20,20 @@
 
 .btnBox {
     display: flex;
+}
+
+@media (max-width: 767px) {
+    .filterBox {
+        flex-direction: column-reverse;
+    }
+    .filterInput {
+        width: auto;
+        margin-right: 0;
+    }
+    .btnBox {
+        margin-bottom: 20px;
+        justify-content: center;
+    }
 }
 
 .btn {

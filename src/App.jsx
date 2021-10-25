@@ -81,6 +81,7 @@ class App extends Component {
             important: false,
             done: false
         }
+        
         this.setState({ items: [...items, newItem] });
     }
 

@@ -29,3 +29,18 @@
 .addItemBtn:hover {
     background-color: #7c6cc2;
 }
+
+@media (max-width: 767px) {
+    .addItemBox {
+        flex-direction: column;
+    }
+    .addInput {
+        width: auto;
+        margin-bottom: 20px;
+    }
+    .addItemBtn {
+        width: auto;
+        padding-top: 15px;
+        padding-bottom: 15px;
+    }
+}
