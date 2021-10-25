@@ -8,7 +8,6 @@ import styles from './App.module.css';
 class App extends Component {
     state = {
         items: [],
-        done: [],
         important: [],
         filterStr: '',
         filterStatus: 'all'
@@ -24,6 +23,11 @@ class App extends Component {
         })
     }
 
+    componentDidUpdate(prevProps, prevState) {
+        if (prevState.items !== this.state.items) {
+            localStorage.setItem('todos', JSON.stringify(this.state.items))
+        } 
+    }
 
     changeItemState(property, id) {
         const { items } = this.state;
@@ -38,6 +42,7 @@ class App extends Component {
         const newState = { ...beforeCurrent, currentEl, ...afterCurrent };
         console.log(newState);
         this.setState(newState);
+        return newState;
     }
 
     importantItemHandler = (id) => {
@@ -50,26 +55,17 @@ class App extends Component {
     }
 
     doneItemHandler = (id) => {
-        const { done } = this.state;
-        this.changeItemState('done', id)
-        console.log(done, id);
-        console.log(done.includes(id));
-        // if (!done.includes(id)) {
-        //     this.setState({
-        //         ...this.state,
-        //         done: [...this.state.done, id]
-        //     })
-        //     localStorage.setItem('done', JSON.stringify({
-        //         done: [...this.state.done, id]
-        //     }));
-        // } else {
-        //     const filtered = done.filter(item => item.id !== id);
-        //     console.log(filtered);
-        //     this.setState({ ...this.state, done: filtered });
-        //     localStorage.setItem('done', JSON.stringify({
-        //         done: [...filtered]
-        //     }));
-        // }
+        const { items } = this.state;
+
+        const changedState = items.map(item => {
+            if (item.id !== id) return item;
+            item.done = !item.done;
+            return item;
+
+        });
+
+        console.log(changedState);
+        this.setState({ ...this.state, items: changedState })
 
     }
 
@@ -150,15 +146,7 @@ class App extends Component {
 
     }
 
-    componentDidUpdate(prevProps, prevState) {
-        console.log(prevState.items, this.state.items);
-        if (prevState.items !== this.state.items) {
-            localStorage.setItem('todos', JSON.stringify(this.state.items))
-        }else if(prevState.done !== this.state.done){
-            localStorage.setItem('done', JSON.stringify(this.state.done))
 
-        }
-    }
     render() {
         const { items, filterStatus } = this.state;
 

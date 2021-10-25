@@ -5,6 +5,10 @@ import styles from './ToDoItem.module.css';
 
 class ToDoItem extends Component {
 
+    state = {
+        checked: this.props.done
+    };
+
     doneHandler = (id) => {
         const { doneItemHandler } = this.props;
         doneItemHandler(id);
@@ -20,16 +24,18 @@ class ToDoItem extends Component {
         deleteItemHandler(id)
     }
 
+    handleCheckboxChange = () => {
+        this.setState({ checked: this.props.done })
+
+    }
     render() {
         const { text, done, important, id } = this.props;
-
         const doneClasses = `${styles.itemText} ${done ? styles.cross : ''} ${important ? styles.important : ''}`;
         const importantBtnClasses = `${styles.importantBtn} ${styles.btn}`;
-
         return (
             <li className={styles.item}>
                 <p className={styles.checkZone} >
-                    <input className={styles.checkbox} type="checkbox" id={`box${id}`} />
+                    <input className={styles.checkbox} type="checkbox" id={`box${id}`} onChange={this.handleCheckboxChange} checked={this.state.checked} />
                     <label htmlFor={`box${id}`} onClick={() => { this.doneHandler(id) }}>
                         <span className={doneClasses} >{text}</span>
                     </label>
