@@ -1,11 +1,13 @@
 .app {
     background-color: #d7d8f4;
-    ;
     border-radius: 15px;
     padding: 20px;
     font-family: sans-serif;
     max-width: 750px;
     margin: 0 auto;
+    min-height: 500px;
+    display: flex;
+    flex-direction: column;
 }
 
 button {

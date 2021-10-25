@@ -10,7 +10,9 @@
 }
 
 .itemText {
-    cursor: pointer;
+    display: inline-block;
+    margin-left: 40px;
+    line-height: 20px;
 }
 
 .item+.item {
@@ -19,7 +21,7 @@
 
 .btn {
     background-repeat: no-repeat;
-    background-size: 15px;
+    background-size: 14px;
     border-radius: 8px;
     width: 30px;
     height: 30px;
@@ -68,4 +70,50 @@
 .important {
     font-weight: 700;
     color: #998bda;
+}
+
+.checkZone {
+    flex-grow: 1;
+    cursor: pointer;
+}
+
+.checkbox {
+    display: none;
+}
+
+.checkbox+label {
+    display: block;
+    position: relative;
+    margin-bottom: 20px;
+    cursor: pointer;
+}
+
+.checkbox+label:last-child {
+    margin-bottom: 0;
+}
+
+.checkbox+label:before {
+    content: '';
+    display: block;
+    width: 20px;
+    height: 20px;
+    border: 1px solid #7c6cc2;
+    border-radius: 5px;
+    position: absolute;
+    left: 0;
+    top: -1px;
+    opacity: .6;
+    transition: all .12s, border-color .08s;
+}
+
+.checkbox:checked+label:before {
+    width: 10px;
+    top: -5px;
+    left: 5px;
+    border-radius: 0;
+    opacity: 1;
+    border-top-color: transparent;
+    border-left-color: transparent;
+    -webkit-transform: rotate(45deg);
+    transform: rotate(45deg);
 }

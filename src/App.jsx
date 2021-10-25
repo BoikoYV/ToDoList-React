@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
-import Header from './Header/Header';
-import ToDoList from './ToDoList/ToDoList';
-import AddItem from './AddItem/AddItem';
-import Filter from './Filter/Filter';
+import Header from './components/Header/Header';
+import ToDoList from './components/ToDoList/ToDoList';
+import AddItem from './components/AddItem/AddItem';
+import Filter from './components/Filter/Filter';
 import styles from './App.module.css';
 
 class App extends Component {
@@ -32,9 +32,7 @@ class App extends Component {
     changeItemState(property, id) {
         const { items } = this.state;
 
-        const currentElIndex = items.findIndex((item) => {
-            if (item.id === id) return item;
-        });
+        const currentElIndex = items.findIndex((item) => item.id === id);
 
         const beforeCurrent = items.slice(0, currentElIndex);
         const afterCurrent = items.slice(currentElIndex + 1);
@@ -72,11 +70,9 @@ class App extends Component {
                 return items.filter((item) => !item.done);
             case 'done':
                 return items.filter((item) => item.done);
-
             default:
                 return items;
         }
-
     }
 
     onSearchChange = (filterStr) => {
@@ -124,7 +120,7 @@ class App extends Component {
                     onSearchChange={this.onSearchChange}
                     filterStatus={filterStatus}
                     onFilterChange={this.onFilterChange} />
-                    
+
                 <ToDoList items={visibleItems}
                     importantItemHandler={this.importantItemHandler}
                     doneItemHandler={this.doneItemHandler}

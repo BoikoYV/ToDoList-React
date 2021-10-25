@@ -28,7 +28,12 @@ class ToDoItem extends Component {
 
         return (
             <li className={styles.item}>
-                <span className={doneClasses} onClick={() => { this.doneHandler(id) }}>{text}</span>
+                <p className={styles.checkZone} >
+                    <input className={styles.checkbox} type="checkbox" id={`box${id}`} />
+                    <label htmlFor={`box${id}`} onClick={() => { this.doneHandler(id) }}>
+                        <span className={doneClasses} >{text}</span>
+                    </label>
+                </p>
                 <div className={styles.btnBox}>
                     <button onClick={() => { this.deleteHandler(id) }} className={`${styles.deleteBtn} ${styles.btn}`}></button>
                     <button onClick={() => { this.importantHandler(id) }} className={importantBtnClasses}></button>

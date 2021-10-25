@@ -5,9 +5,7 @@ class Header extends Component {
     render() {
 
         const { title, items } = this.props;
-        const needToDo = items.filter((item) => {
-            if (!item.done) return item;
-        })
+        const needToDo = items.filter(item => !item.done)
 
         return (
             <div className={styles.headerBox}>
