@@ -17,6 +17,7 @@ class AddItem extends Component {
     addValueToState(e) {
         let value = e.target.value;
         this.setState({ value: value });
+        
     }
 
     render() {
