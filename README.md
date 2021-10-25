@@ -1,11 +1,17 @@
 ### 💻 Todo List on React
 
-Functionality:
-- Adding tasks
-- Deleting tasks
-- Marking a task as important
-- Filter tasks by entered value
-- Filter tasks by status (all/active/done)
-- Display count of completed and active tasks
+*📝The project is still in development*
 
-![image](https://user-images.githubusercontent.com/68449997/135761129-db289a18-842a-48c4-933f-a2b0230bdc75.png)
+[Live Demo](https://to-do-list-react-weld.vercel.app/)
+
+Functionality:
+- Adding tasks;
+- Deleting tasks;
+- Marking a task as important;
+- Filter tasks by entered value;
+- Filter tasks by status (all/active/done);
+- Display count of completed and active tasks;
+- Сounting completed and active tasks;
+- Synchronization with local storage
+
+![image](https://user-images.githubusercontent.com/68449997/138762931-003aef4b-1594-4911-abf5-791e4480bf92.png)
