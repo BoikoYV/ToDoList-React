@@ -38,9 +38,6 @@ class App extends Component {
         const newState = { ...beforeCurrent, currentEl, ...afterCurrent };
         console.log(newState);
         this.setState(newState);
-        // localStorage.setItem('todos', JSON.stringify(newState));
-
-
     }
 
     importantItemHandler = (id) => {
@@ -142,22 +139,28 @@ class App extends Component {
     }
 
     deleteItemHandler = (id) => {
-        this.setState(({ items }) => {
-            const currentElIndex = items.findIndex(item => item.id === id);
-            const changedItems = [
-                ...items.slice(0, currentElIndex),
-                ...items.slice(currentElIndex + 1)
-            ];
+        const { items } = this.state;
+        const currentElIndex = items.findIndex(item => item.id === id);
+        const changedItems = [
+            ...items.slice(0, currentElIndex),
+            ...items.slice(currentElIndex + 1)
+        ];
 
-            return { items: changedItems };
-        })
-        // localStorage.setItem('items', JSON.stringify(changedItems));
+        this.setState({ items: changedItems });
 
     }
 
+    componentDidUpdate(prevProps, prevState) {
+        console.log(prevState.items, this.state.items);
+        if (prevState.items !== this.state.items) {
+            localStorage.setItem('todos', JSON.stringify(this.state.items))
+        }else if(prevState.done !== this.state.done){
+            localStorage.setItem('done', JSON.stringify(this.state.done))
+
+        }
+    }
     render() {
         const { items, filterStatus } = this.state;
-        // const visibleItems = this.filterByStatus(this.filterByValue(items, filterStr), filterStatus);
 
         return (
             <div className={styles.app}>
