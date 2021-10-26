@@ -11,9 +11,7 @@ class AddItem extends Component {
         e.preventDefault();
         const { addItemHandler } = this.props;
         const { value } = this.state;
-
         if (!e.target[0].value.length) return;
-
         addItemHandler(value);
         e.target[0].value = '';
     }
@@ -21,7 +19,6 @@ class AddItem extends Component {
     addValueToState = (e) => {
         let value = e.target.value;
         if (value !== this.state.value) this.setState({ value: value });
-
     }
 
     render() {
