@@ -1,6 +1,6 @@
 ### 💻 Todo List on React
-
-*📝The project is still in development*
+<!-- 
+*📝The project is still in development* -->
 
 [Live Demo](https://to-do-list-react-weld.vercel.app/)
 
